@@ -1,0 +1,36 @@
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Locators {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = new EdgeDriver();
+		//when something is not showing up in page, wait 5 seconds before failing
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get("https://rahulshettyacademy.com/locatorspractice/");
+		driver.findElement(By.id("inputUsername")).sendKeys("k3llyr00@gmail.com");
+		driver.findElement(By.name("inputPassword")).sendKeys("k3llyr00@gmail.com");
+		driver.findElement(By.id("chkboxTwo")).click();
+		driver.findElement(By.className("signInBtn")).click();
+		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
+		driver.findElement(By.linkText("Forgot your password?")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Kelly");
+		driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("not_correct@gmail.com");
+		driver.findElement(By.xpath("//input[@placeholder='Phone Number']")).sendKeys("56666666");
+		//when multiple elements are matching, use index number.
+		driver.findElement(By.xpath("//input[@type='text'][2]")).clear();
+		driver.findElement(By.cssSelector("input[type='text']:nth-child(3)")).sendKeys("correct@gmail.com");
+		
+		
+ 		//driver.close();
+
+	}
+
+}

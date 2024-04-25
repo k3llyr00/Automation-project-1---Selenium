@@ -1,0 +1,23 @@
+
+public class MethodsDemo {
+
+	public static void main(String[] args) {
+
+
+		String name = getData();
+		System.out.println("Method1 output: " + name);
+		
+		MethodsDemo2 d1 = new MethodsDemo2();
+		String name2 = d1.getUserData();
+		System.out.println("Method2 output: " + name2);
+		
+
+	}
+	// when class method is static you can access to it without creating a object, because method is now class level
+	public static String getData() {
+		System.out.println("Hello world!");
+		return "Rahul Shetty";
+	}
+
+}
+

@@ -32,9 +32,7 @@ public class Locators {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".reset-pwd-btn")));
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
-		
 		System.out.println(driver.findElement(By.cssSelector("form p")).getText());
-		
 		driver.findElement(By.xpath("//div[@class='forgot-pwd-btn-conainer']/button[1]")).click();
 		driver.findElement(By.cssSelector("#inputUsername")).sendKeys("k3llyr00@gmail.com");
 		

@@ -13,7 +13,6 @@ public class Locators2 {
 		String username = "k3llyr00@gmail.com";
 		
 		WebDriver driver = new EdgeDriver();
-		WebDriver driver2 = new FirefoxDriver();
 		//when something is not showing up in page, wait 5 seconds before failing
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		String password = getPassword(driver);

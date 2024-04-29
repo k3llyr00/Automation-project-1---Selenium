@@ -1,0 +1,18 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Dropdown {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new EdgeDriver();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		//  //a[@value='MAA'] - xpath for Chennai
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//select[@name='ctl00$mainContent$ddl_originStation1']/child::option[9]")).click();
+		
+
+	}
+
+}

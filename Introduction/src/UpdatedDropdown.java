@@ -14,6 +14,7 @@ public class UpdatedDropdown {
 		Thread.sleep(2000);
 		
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText()); // Value of adult passengers before the loop
+		
 		// click 4 times '+'-button
 		for (int i = 1; i < adultPassengers; i++) {
 			driver.findElement(By.id("hrefIncAdt")).click();

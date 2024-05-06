@@ -1,0 +1,38 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+//TestNG testing framework will provide assertions.
+import org.testng.Assert;
+
+public class UpdatedDropdown {
+
+	public static void main(String[] args) throws InterruptedException {
+		//Declaring variables
+		int adultPassengers = 5;
+		
+		WebDriver driver = new EdgeDriver();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected()); // false
+		Assert.assertFalse(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
+		driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click(); // partial id
+		System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected()); // true
+		System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());//plural
+		
+		
+		driver.findElement(By.id("divpaxinfo")).click();
+		Thread.sleep(2000);
+		
+		System.out.println(driver.findElement(By.id("divpaxinfo")).getText()); // Value of adult passengers before the loop
+		
+		// click 4 times '+'-button
+		for (int i = 1; i < adultPassengers; i++) {
+			driver.findElement(By.id("hrefIncAdt")).click();
+		}
+		
+		driver.findElement(By.id("btnclosepaxoption")).click();
+		System.out.println(driver.findElement(By.id("divpaxinfo")).getText()); // Value of adult passengers after the loop
+		
+	}
+
+}

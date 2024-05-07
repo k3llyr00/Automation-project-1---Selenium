@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.Assert;
 
 public class Dropdown {
 
@@ -21,6 +22,7 @@ public class Dropdown {
 		//Solution 2: //parent //child xpath following each other
 		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='MAA']")).click();
 		
+		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight")).click();
 
 	}
 

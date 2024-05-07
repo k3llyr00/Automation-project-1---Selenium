@@ -12,7 +12,7 @@ public class SelIntroduction implements WebDriver{
 		if this is not done, Selenium Manager does it automatically 
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\chromedriver.exe");
 		 */
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new EdgeDriver();
 		driver.get("https://rahulshettyacademy.com/");
 		//Print the URL you're landing on to the console.
 		System.out.println(driver.getCurrentUrl());
@@ -31,7 +31,7 @@ public class SelIntroduction implements WebDriver{
  		
  		//Edge
  		//System.setProperty("webdriver.edge.driver", "C:\\Program Files\\Google\\Chrome\\msedgedriver.exe");
- 		WebDriver driver1 = new EdgeDriver();
+ 		WebDriver driver1 = new ChromeDriver();
 		driver1.get("https://rahulshettyacademy.com/");
 		System.out.println(driver1.getCurrentUrl());
 		System.out.println(driver1.getTitle());

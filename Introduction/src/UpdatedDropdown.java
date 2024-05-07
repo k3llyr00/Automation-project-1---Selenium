@@ -19,6 +19,27 @@ public class UpdatedDropdown {
 		
 		Assert.assertEquals(driver.findElements(By.cssSelector("input[type='checkbox']")).size(), 6); //findElements in plural, otherwise its taking the first one and returning this
 		
+		//before Enabling the datepicker 
+		Assert.assertTrue(driver.findElement(By.id("Div1")).getAttribute("style").contains("0.5"));
+
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+		
+		//after Enabling the datepicker 
+		Assert.assertTrue(driver.findElement(By.id("Div1")).getAttribute("style").contains("1"));
+		
+		
+		// alternative way, but I think the assertion above is better
+		/*
+		if (driver.findElement(By.id("Div1")).getAttribute("style").contains("1")){ // scanning the whole String and looking for "1".
+			System.out.println("The Return date datepicker is enabled");
+			Assert.assertTrue(true);
+		} else {
+			System.out.println("The Return date datepicker is disabled");
+			Assert.assertTrue(false);
+		}
+		
+		 */
+		
 		driver.findElement(By.id("divpaxinfo")).click();
 		Thread.sleep(2000);
 		
@@ -34,6 +55,7 @@ public class UpdatedDropdown {
 		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
 		
 		driver.close();
+		
 	}
 
 }

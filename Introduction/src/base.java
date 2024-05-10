@@ -30,7 +30,8 @@ public class base {
 			if (itemsNeededList.contains(formattedProductName)) {
 				
 				j++;
-				driver.findElements(By.cssSelector("div.product-action")).get(i).click();
+				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
+				Thread.sleep(5000); // after 5sec Added changes back to Add to cart button.
 				if (j == itemsNeeded.length) {
 					break;
 				}

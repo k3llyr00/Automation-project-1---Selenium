@@ -18,20 +18,24 @@ public class base {
 		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
 
 		for (int i = 0; i < products.size(); i++) {
-			String productName = products.get(i).getText();
-			String productNameList [] = productName.split(" ");
+			String [] productName = products.get(i).getText().split("-");
+			String formattedProductName = productName[0].trim();
 			
+
 			// COnvert array into array list for access contains method
 			List<String> itemsNeededList = Arrays.asList(itemsNeeded);
 
 			// Check whether name you extracted is present in arrayList or not
-			if (itemsNeededList.contains(productNameList[0])) {
-
-				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
+			int j = 0;
+			if (itemsNeededList.contains(formattedProductName)) {
+				
+				j++;
+				driver.findElements(By.cssSelector("div.product-action")).get(i).click();
+				if (j == itemsNeeded.length) {
+					break;
+				}
+				
 			}
 		}
-		
-		Thread.sleep(5000);
-		driver.quit();
 	}
 }
